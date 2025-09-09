@@ -1,13 +1,13 @@
 # Project Name: Finding Mjolnir
 
 ## Project Overview
-Hypothesis: Mjolnir (Thor’s Hammer) fell on earth and was covered up as a normal meteorite landing. Since Thor is the god of thunder, his hammer’s arrival is assumed to be accompanied by thunderstorms.
-Goal: Find weather stations in range (10 miles) of meteorite landings and determine if there were more thunderstorms than normal around the time when the meteorite landed.
-Selection Criteria 1: The number of local thunderstorms in the year the meteorite landed is 10 or more above a 10 year average
-Selection Criteria 2: The number of local thunderstorms in the year the meteorite landed is over 50% more than a 10 year average
-The following two datasets were used:
-National Centers for Environmental Information Global Surface Summary of Day Data (GSOD) 
-NASA comprehensive data set of Meteorite Landings from The Meteorological Society
+Hypothesis: Mjolnir (Thor’s Hammer) fell on earth and was covered up as a normal meteorite landing. Since Thor is the god of thunder, his hammer’s arrival is assumed to be accompanied by thunderstorms.  
+Goal: Find weather stations in range (10 miles) of meteorite landings and determine if there were more thunderstorms than normal around the time when the meteorite landed.  
+Selection Criteria 1: The number of local thunderstorms in the year the meteorite landed is 10 or more above a 10 year average  
+Selection Criteria 2: The number of local thunderstorms in the year the meteorite landed is over 50% more than a 10 year average  
+The following two datasets were used:  
+National Centers for Environmental Information Global Surface Summary of Day Data (GSOD)  
+NASA comprehensive data set of Meteorite Landings from The Meteorological Society  
 
 
 ## Technologies Used
@@ -58,12 +58,12 @@ pip install -r requirements.txt
 project-directory/  
 │  
 ├── Weather_Data/  
-   ├── Weather_Data.ipynb  
-   └── Total_Weather_Files.ipynb  
+│ ├── Weather_Data.ipynb  
+│ └── Total_Weather_Files.ipynb  
 ├── Mjolnir.ipynb  
 ├── Meteorite_Plots.ipynb  
 ├── Mjolnir_Candidates.ipynb  
-├── Candidate Meteorite Details.xlsx
+├── Candidate Meteorite Details.xlsx  
 ├── Product Backlog and Sprints.xlsx  
 ├── Mjolnir Group Presentation.pptx  
 ├── Meteorite_Landings.csv  
@@ -72,9 +72,9 @@ project-directory/
 
 ## Learning Outcomes
 Advanced Python programming  
-Webscraping, HTML syntax, data collection automation
-Data cleaning, manipulation, merging, and analysis
-Data presentation
+Webscraping, HTML syntax, data collection automation  
+Data cleaning, manipulation, merging, and analysis  
+Data presentation  
 
 ## License
 MIT License
