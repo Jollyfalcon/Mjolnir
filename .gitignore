@@ -209,4 +209,7 @@ __marimo__/
 #ignore data and images
 *.html
 *_data.csv 
+All_Stations_*.csv
+Meteorite_Analysis_*.csv
+Thunder_data_*.csv
 *.png 
