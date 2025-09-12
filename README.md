@@ -1,7 +1,7 @@
 # Project Name: Finding Mjolnir
-
+See Mjolnir Group Presentation.pptx for images and more in-depth discussion
 ## Project Overview
-Hypothesis: Mjolnir (Thor’s Hammer) fell on earth and was covered up as a normal meteorite landing. Since Thor is the god of thunder, his hammer’s arrival is assumed to be accompanied by thunderstorms.  
+Project Prompt: Mjolnir (Thor’s Hammer) fell on earth and was covered up as a normal meteorite landing. Since Thor is the god of thunder, his hammer’s arrival is assumed to be accompanied by thunderstorms.  
 Goal: Find weather stations in range (10 miles) of meteorite landings and determine if there were more thunderstorms than normal around the time when the meteorite landed.  
 Selection Criteria 1: The number of local thunderstorms in the year the meteorite landed is 10 or more above a 10 year average  
 Selection Criteria 2: The number of local thunderstorms in the year the meteorite landed is over 50% more than a 10 year average  
