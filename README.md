@@ -59,7 +59,7 @@ project-directory/
 │  
 ├── Mjolnir.ipynb  
 ├── Meteorite_Plots.ipynb  
-├── Mjolnir_Candidates.ipynb
+├── Mjolnir_Candidates.ipynb  
 ├── data_download.py  
 ├── unzip_data.py  
 ├── thunder_counts.py  
@@ -73,9 +73,9 @@ project-directory/
 ├── requirements.txt  
 ├── README.md  
 └── weather_data/  
-&nbsp; └── [year folder]  
-&nbsp; &nbsp; ├──[year ]_thunder_data.csv  
-&nbsp; &nbsp; └──[station ID].csv  
+ &nbsp; &nbsp; └── [year folder]/  
+ &nbsp; &nbsp; &nbsp; &nbsp; ├──[year ]_thunder_data.csv  
+ &nbsp; &nbsp; &nbsp; &nbsp; └──[station ID].csv  
 
 ## Learning Outcomes
 Advanced Python programming  
