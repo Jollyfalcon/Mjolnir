@@ -57,18 +57,25 @@ pip install -r requirements.txt
 ### Project Structure
 project-directory/  
 │  
-├── Weather_Data/  
-│ ├── Weather_Data.ipynb  
-│ └── Total_Weather_Files.ipynb  
 ├── Mjolnir.ipynb  
 ├── Meteorite_Plots.ipynb  
-├── Mjolnir_Candidates.ipynb  
+├── Mjolnir_Candidates.ipynb
+├── data_download.py  
+├── unzip_data.py  
+├── thunder_counts.py  
+├── thunder_averages.py  
+├── total_weather_files.py  
+├── unique_stations.py  
 ├── Candidate Meteorite Details.xlsx  
 ├── Product Backlog and Sprints.xlsx  
 ├── Mjolnir Group Presentation.pptx  
 ├── Meteorite_Landings.csv  
 ├── requirements.txt  
-└── README.md
+├── README.md  
+└── weather_data/  
+&nbsp; └── [year folder]  
+&nbsp; &nbsp; ├──[year ]_thunder_data.csv  
+&nbsp; &nbsp; └──[station ID].csv  
 
 ## Learning Outcomes
 Advanced Python programming  
