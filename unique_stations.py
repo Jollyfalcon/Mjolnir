@@ -31,11 +31,9 @@ for year in year_list:
     new_stations_set = year_station_files_set - all_station_set
     all_station_set = all_station_set | year_station_files_set
     new_stations = pd.DataFrame()
-    i=0
-    for station in new_stations_set:
+    for i, station in enumerate(new_stations_set):
         #print(weather_data_url+year+file)
-        i+=1
-        print(f"\rIn {year} Adding station: {station} Progress: {i}/{len(new_stations_set)}             ", end = "", flush = True)
+        print(f"\rIn {year} Adding station: {station} Progress: {i+1}/{len(new_stations_set)}       ", end = "", flush = True)
         station_path = os.path.join(year_path,station)
         csv_df = pd.read_csv(station_path, dtype = {'STATION':'string'})
         csv_df.dropna(ignore_index=True,inplace=True)

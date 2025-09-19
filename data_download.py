@@ -28,8 +28,8 @@ href_values = [a['href'] for a in weather_soup.find_all('a', href=True)]
 all_files = [href for href in href_values if href in file_set]
 # print(year_folders)
 
-for file in all_files:
-    print(f"\rDownloading: {file}                                 ", end = "", flush = True)
+for i, file in enumerate(all_files):
+    print(f"\rDownloading: {file} Progress: {i+1}/{len(all_files)}             ", end = "", flush = True)
 
     url = weather_data_url + file
     file_path = os.path.join(archive_path,file)
