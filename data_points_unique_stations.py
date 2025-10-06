@@ -1,5 +1,6 @@
 import pandas as pd
 import os
+import re
 #import math
 #import numpy as np
 
@@ -7,12 +8,15 @@ pd.options.mode.copy_on_write = True
 pd.set_option("future.no_silent_downcasting", True)
 
 #initialize year range and dataframes
+csv_exclude = r'data.csv$'
 min_data_points = 190
 year_start=1929
 year_end=2025
 year_list=list(map(str,range(year_start,year_end+1)))
 year_set = set(year_list)
-station_info=['STATION','NAME','LATITUDE','LONGITUDE']
+station_info= ['STATION','NAME','LATITUDE','LONGITUDE']
+# station_merge = ['STATION','LATITUDE','LONGITUDE']
+# station_drop = ['NAME']
 unique_stations=pd.DataFrame(columns=station_info+year_list)
 
 current_path = os.getcwd()
@@ -21,12 +25,18 @@ data_path = os.path.join(current_path,data_folder)
 year_list = [f.name for f in os.scandir(data_path) if f.is_dir() and f.name in year_set]
 
 all_station_set = set()
+
+agg_function = {}
+for column in station_info: agg_function[column]='first'
+
 for year in year_list:
     # print(f"\rIn: {year}                                 ", end = "", flush = True)
     # year="1948/"
+    agg_function[f'{year}']='sum'
     year_path = os.path.join(data_path,year)
     #create set of all csv files in each folder
-    year_station_files = [f.name for f in os.scandir(year_path) if f.is_file()]
+
+    year_station_files = [f.name for f in os.scandir(year_path) if f.is_file() and not re.search(csv_exclude,f.name)]
     year_station_info = station_info + [f'{year}']
     #print(csv_files)
     year_station_data_set = set()
@@ -61,9 +71,10 @@ for year in year_list:
     # if not unique_stations.empty:
     #     unique_stations.loc[unique_stations['STATION'].isin(year_station_data_set) , f'{year}']=True
 print('  Complete')
-#clean up dataframe of unique stations, replace all 'NA' values with 'False'
-unique_stations.reset_index(inplace=True,drop=True)
+#clean up dataframe of unique stations
 unique_stations.fillna(value=0,inplace=True)
+unique_stations = unique_stations.groupby('STATION').agg(agg_function)
+unique_stations.reset_index(inplace=True,drop=True)
 #save dataframe
 unique_stations.to_csv(f'YearlyStationDataPoints_{year_start}_{year_end}.csv',index=False)
 print(f'YearlyStationDataPoints_{year_start}_{year_end}.csv save complete.')
