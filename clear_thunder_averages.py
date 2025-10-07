@@ -22,7 +22,9 @@ def main():
         year_path = os.path.join(G_DATA_PATH,str(year))
         file_name = f'{year}_thunder_avg_data.csv'
         file_path = os.path.join(year_path,file_name)
-        if os.path.isfile(file_path): os.remove(file_path)
+        if os.path.isfile(file_path):
+            os.remove(file_path)
+            print(f'Removed {year}\{file_name}')
 
 if __name__ == '__main__':
     main()

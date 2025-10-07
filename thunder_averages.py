@@ -82,7 +82,7 @@ def calc_thunder_avg(station_index,
         initial_start = initial_end - 11
     #finding all years with minimum amount of data points
     for year in range(initial_start,initial_end+1):
-        year_data_points = station_data_df.loc[station_data_df['STATION']==station,[str(year)]].values[0]
+        year_data_points = station_data_df.loc[station_data_df['STATION']==station,[str(year)]].values[0][0]
         # print(year_data_points)
         if year==date_int: continue
         if year_data_points>=G_MIN_DATA_POINTS:
@@ -94,13 +94,13 @@ def calc_thunder_avg(station_index,
     extend_end = initial_end+1
     while len(year_list)<10:
         if extend_start >= G_MIN_DATE:
-            station_extension_start = station_data_df.loc[station_data_df['STATION']==station,[str(extend_start)]].values[0]
+            station_extension_start = station_data_df.loc[station_data_df['STATION']==station,[str(extend_start)]].values[0][0]
             if station_extension_start >= G_MIN_DATA_POINTS:
                 year_list.append(extend_start)
         extend_start -= 1
         if len(year_list)==10: break
         if extend_end <= G_MAX_DATE:
-            station_extension_end = station_data_df.loc[station_data_df['STATION']==station, [str(extend_end)]].values[0]
+            station_extension_end = station_data_df.loc[station_data_df['STATION']==station, [str(extend_end)]].values[0][0]
             if station_extension_end >= G_MIN_DATA_POINTS:
                 year_list.append(extend_end)
         extend_end += 1
@@ -111,8 +111,8 @@ def calc_thunder_avg(station_index,
     # print(station)
     # print(year_list)
     for year in year_list:
-        station_thunder = thunder_counts[str(year)].loc[thunder_counts[str(year)]['STATION']==station,['THUNDER INSTANCES']].values[0]
-        station_data_points = thunder_counts[str(year)].loc[thunder_counts[str(year)]['STATION']==station,['DATA POINTS']].values[0]
+        station_thunder = thunder_counts[str(year)].loc[thunder_counts[str(year)]['STATION']==station,['THUNDER INSTANCES']].values[0][0]
+        station_data_points = thunder_counts[str(year)].loc[thunder_counts[str(year)]['STATION']==station,['DATA POINTS']].values[0][0]
         weighted_counts.append(station_thunder/station_data_points*365)
         #confused on the best approach to this calculation - how to address leap years?
         #should I calculate a weighted daily average? [thunder_counts]/[data_points]
