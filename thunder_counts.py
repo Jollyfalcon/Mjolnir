@@ -1,10 +1,12 @@
 import pandas as pd
 import os
+import re
 
 pd.options.mode.copy_on_write = True
 pd.set_option("future.no_silent_downcasting", True)
 
 #initialize year range and dataframes
+csv_exclude = r'data.csv$'
 year_start=1929
 year_end=2025
 year_list=list(map(str,range(year_start,year_end+1)))
@@ -26,7 +28,7 @@ for year in year_list:
     if os.path.isfile(file_path):
         continue
     #create set of all csv files in each folder
-    year_station_files = [f.name for f in os.scandir(year_path) if f.is_file()]
+    year_station_files = [f.name for f in os.scandir(year_path) if f.is_file() and not re.search(csv_exclude,f.name)]
     
     i=0
     for station in year_station_files:
